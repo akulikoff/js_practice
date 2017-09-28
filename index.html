@@ -1,19 +1,34 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <script src="script.js"></script>
-    <script>
+<head>
+  <meta charset="UTF-8">
+  <script src="script.js"></script>
+  <script>
       window.onload = function() {
-        var menuItem1 = new MenuItem('/', 'Главная');
-        var menuItem2 = new MenuItem('/catalog', 'Каталог');
-        var menuItem3 = new MenuItem('/blog', 'Блог');
+          var menuItem1 = new MenuItem('/', 'Главная');
 
-        var menu = new Menu('menu', 'menu', [menuItem1, menuItem2, menuItem3]);
-        
-        document.write(menu.render());
+          var good1 = new MenuItem('/catalog/brand1/good1', 'Товар1');
+          var good2 = new MenuItem('/catalog/brand1/good2', 'Товар2');
+          var good3 = new MenuItem('/catalog/brand1/good3', 'Товар3');
+          var brand1 = new SubMenu('/catalog/brand1', 'Бренд1', '', 'subMenu', [good1, good2, good3]);
+          var menuItem2 = new SubMenu('/catalog', 'Каталог', '', 'subMenu', [brand1]);
+          var menuItem3 = new MenuItem('/blog', 'Блог');
+          var menuItem4 = new MenuItem('/basket', 'Корзина');
+          var menuItem5 = new MenuItem('/personal', 'Личный кабинет');
+          var menuItem6 = new MenuItem('/sales', 'Скидки');
+          var menuItem7 = new MenuItem('/gallery', 'Фотогаллерея');
+          var menuItem8 = new MenuItem('/contacts', 'Контакты');
+
+          var menu = new Menu('menu', 'menu', [menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, menuItem6, menuItem7, menuItem8]);
+
+          document.write(menu.render());
+          // document.getElementById('menu').innerHTML=menu.render();
+//          document.getElementById('menu').remove();
       }
-    </script>
-  </head>
-  <body>
-  </body>
+
+  </script>
+</head>
+<body>
+<div id="menu"></div>
+<button onclick="removeAll()">Remove</button>
+</body>
 </html>
