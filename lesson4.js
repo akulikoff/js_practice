@@ -1,11 +1,11 @@
-$(document).ready(function() { // Ждём загрузки страницы
-    $(".menu li").click(function() { // Событие нажатия на элемент меню вкладок
-        if (!$(this).hasClass("active")) { // Проверка, не нажали ли мы на уже активный пункт
-            var i = $(this).index(); // Получаем порядковый номер нажатого пункта, отстче идет от 0 (0,1,2)
-            $(".menu li.active").removeClass("active"); // Удаляем активный класс у прошлого пункта меню
-            $(".tabs .active").hide().removeClass("active"); // Скрываем и удаляем активный класс у прошлого контейнера с содержимым
-            $(this).addClass("active"); // Добавляем нажатому пункту меню активный класс
-            $($(".tabs").children(".about")[i]).fadeIn(1000).addClass("active"); // Показываем и добавляем активный класс соответствующему контейнеру
+$(document).ready(function() { 
+    $(".menu li").click(function() { 
+        if (!$(this).hasClass("active")) { 
+            var i = $(this).index(); 
+            $(".menu li.active").removeClass("active"); 
+            $(".tabs .active").hide().removeClass("active"); 
+            $(this).addClass("active"); 
+            $($(".tabs").children(".about")[i]).fadeIn(1000).addClass("active");
         }
     });
 });
