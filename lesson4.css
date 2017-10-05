@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+}
+.menu{
+	display: inline-block;
+}
+.menu ul:after{
+    content:"";
+    display:block;
+    clear:both;
+    height:5px;
+    background:#46c765;
+}
+.menu ul li{
+    margin:0px;
+    padding:0px;
+    cursor:pointer;
+    display:block;
+    float:left;
+    padding:10px 15px;
+    background:#e9eaeb;  
+    color:#707070;
+}
+.menu ul li.active, .tabs ul li.active:hover{
+    background:#46c765;
+    color:#fff;
+}
+.menu ul li:hover{
+    background:#d6d6d7;
+}
+.tabs .about {
+    display: none;
+    margin: 0 auto;
+}
+
+.tabs .about.active {
+    display: block;
+}
+
