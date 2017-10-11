@@ -1,45 +1,94 @@
-function Container() {
-  this.id = "";
-  this.className = "";
-  this.htmlCode = "";
-}
+function ValidName() {
+    var re = /[a-zA-Zа-яА-ЯёЁ']+[a-zA-Z-а-яА-ЯёЁ' ]+[a-zA-Zа-яА-ЯёЁ']/;
+    var myName = document.getElementById('name').value;
+    var valid = re.test(myName);
+    if (valid) {
+        output = 'Имя введено правильно!';
+    } else {
+        output = 'Имя введено неправильно!';
 
-Container.prototype.render = function() {
-  return this.htmlCode;
-}
-
-function Menu(myId, myClass, myItems) {
-  Container.call(this);
-  this.id = myId;
-  this.className = myClass;
-  this.items = myItems;
-}
-
-Menu.prototype = Object.create(Container.prototype);
-Menu.prototype.constructor = Menu;
-
-Menu.prototype.render = function() {
-  var result = '<ul class="' + this.className + '" id="' + this.id + '">';
-  for(var i = 0; i < this.items.length; i++) {
-    if(this.items[i] instanceof MenuItem) {
-      result += this.items[i].render();
     }
-  }
-  result += '</ul>';
-  
-  return result;
+    document.getElementById('message').innerHTML = output;
+    return valid;
 }
 
-function MenuItem(myHref, myLabel) {
-  Container.call(this);
-  this.className = 'menu-item';
-  this.href = myHref;
-  this.label = myLabel;
+function ValidMail() {
+    var re = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i;
+    var myMail = document.getElementById('email').value;
+    var valid = re.test(myMail);
+    if (valid) {
+        output = 'Адрес эл. почты введен правильно!';
+    } else {
+        output = 'Адрес электронной почты введен неправильно!';
+        document.getElementsByName('email');
+        email.classList.add('error');
+
+    }
+    document.getElementById('message').innerHTML = document.getElementById('message').innerHTML + '<br />' + output;
 }
 
-MenuItem.prototype = Object.create(Container.prototype);
-MenuItem.prototype.constructor = MenuItem;
-
-MenuItem.prototype.render = function() {
-  return '<li class="' + this.className + '"><a href="' + this.href + '" >' + this.label + '</a></li>';
+function ValidPhone() {
+    var re = /\+\d\(\d\d\d\)\d\d\d-\d\d\d\d/;
+    var myPhone = document.getElementById('phone').value;
+    var valid = re.test(myPhone);
+    if (valid) {
+        output = 'Номер телефона введен правильно!';
+    } else {
+        output = 'Номер телефона введен неправильно!';
+        document.getElementsByName('phone');
+        phone.classList.add('error');
+        document.getElementById('message').innerHTML = document.getElementById('message').innerHTML + '<br />' + output;
+    }
+    return valid;
 }
+$(function() {
+    $.datepicker.setDefaults($.datepicker.regional['ru']);
+    $("#date").datepicker({
+        dateFormat: "dd.mm.yy",
+        showOn: "button",
+        buttonImage: "images/calendar_.gif",
+        buttonText: "Выберите дату"
+    });
+});
+
+$(function() {
+    $('#button').button().click(function() {
+        $('.error').effect("pulsate", 1000);
+        setTimeout(function() {
+            $('#message').dialog({
+                autoOpen: true,
+                show: { effect: "slideDown", duration: 800 }
+            })
+        }, 1000);
+
+    });
+
+
+});
+$(document).ready(function() {
+    $("#lightSlider").lightSlider({
+
+        item: 4,
+        slideMargin: 10,
+        slideMove: 2,
+
+        responsive: [{
+                breakpoint: 800,
+                settings: {
+                    item: 3,
+                    slideMove: 1,
+                    slideMargin: 6,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    item: 2,
+                    slideMove: 1,
+                    slideMargin: 6
+                }
+            }
+        ],
+
+    });
+});

@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="jquery-ui.css">
+    <link rel="stylesheet" href="css/lightslider.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/lightslider.js"></script>
+    <script src="script.js">
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div id="lightSlider">
+                <div class="product"><img src="images/Livello25.jpg" alt="">
+                    <h2>заголовок1</h2></div>
+                <div class="product"><img src="images/Livello26.jpg" alt="">
+                    <h2>заголовок2</h2></div>
+                <div class="product"><img src="images/Livello27.jpg" alt="">
+                    <h2>заголовок3</h2></div>
+                <div class="product"><img src="images/Livello28.jpg" alt="">
+                    <h2>заголовок4</h2></div>
+                <div class="product"><img src="images/Livello29.jpg" alt="">
+                    <h2>заголовок5</h2></div>
+            </div>
+        </div>
+        <form action="" method="POST"></form>
+        <div id="message">Пожалуйста, заполните все поля формы! </div>
+        <br>
+        <input id="name" name="userName" type="text" placeholder="Введите Имя" value="">
+        <br>
+        <input id="date" type="text" name="date" placeholder="дд.мм.гг">
+        <br>
+        <input id="email" name="email" type="text" placeholder="mymail@mail.ru" value="" />
+        <br>
+        <input id="phone" name="phone" type="text" placeholder="+7(000)000-0000" value="" />
+        <br />
+        <textarea name="" id="" cols="30" rows="10" placeholder="Введите текст"></textarea>
+        <br>
+        <input id="button" name="button" type="submit" value="Проверить" onclick="ValidName(); ValidMail(); ValidPhone()">
+    </div>
+</body>
+
+</html>
